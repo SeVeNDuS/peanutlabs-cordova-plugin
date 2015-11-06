@@ -1,0 +1,35 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+    <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="peanutlabs-cordova-plugin" version="0.0.1">
+    <name>Peanutlabs</name>
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+    <description>Peanutlabs Cordova Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,peanutlabs,ads,offerwall</keywords>
+    <js-module src="www/peanutlabs.js" name="Peanutlabs">
+        <clobbers target="window.plugins.peanutlabs" />
+    </js-module>
+
+    <platform name="android">
+        <framework src="com.google.android.gms:play-services-ads:+" />
+        
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Peanutlabs">
+                <param name="android-package" value="uk.mondosports.plugins.peanutlabs.PeanutlabsPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.peanutlabs.plsdk.RewardsCenterActivity" android:configChanges="keyboard|keyboardHidden|screenSize|orientation"></activity>
+        </config-file>
+
+        <source-file src="android/PeanutlabsPlugin.java" target-dir="src/uk/mondosports/plugins/peanutlabs" />
+        <source-file src="android/sponsorpay-android-sdk-7.0.2.jar" target-dir="libs/" />
+    </platform>
+</plugin>
