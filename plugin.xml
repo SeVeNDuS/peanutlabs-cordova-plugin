@@ -30,6 +30,6 @@
         </config-file>
 
         <source-file src="android/PeanutlabsPlugin.java" target-dir="src/uk/mondosports/plugins/peanutlabs" />
-        <source-file src="android/sponsorpay-android-sdk-7.0.2.jar" target-dir="libs/" />
+        <source-file src="android/plsdk.jar" target-dir="libs/" />
     </platform>
 </plugin>
