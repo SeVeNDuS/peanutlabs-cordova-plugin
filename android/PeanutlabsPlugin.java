@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class FyberPlugin extends CordovaPlugin {
 
     private static final String LOGTAG = "PeanutlabsPlugin";
-    private static final String DEFAULT_APP_ID = "8201";
+    private static final int DEFAULT_APP_ID = 8201;
     private static final String DEFAULT_APP_KEY = "4fbd9cfce53903b181bd13b1996b4d21";
 
     private static final String ACTION_INITIALIZE = "initialize";
@@ -66,9 +66,15 @@ public class FyberPlugin extends CordovaPlugin {
     }
 
     private void initialize( JSONObject options ) {
-        if(options.has(OPT_APPLICATION_ID)) this.appId = options.optString( OPT_APPLICATION_ID );
-        if(options.has(OPT_APPLICATION_KEY)) this.appKey = options.optString( OPT_APPLICATION_KEY );
-        if(options.has(OPT_USER_ID)) this.userId = options.optString( OPT_USER_ID );
+        if (options.has(OPT_APPLICATION_ID)) {
+            this.appId = options.optInt(OPT_APPLICATION_ID);
+        }
+        if (options.has(OPT_APPLICATION_KEY)) {
+            this.appKey = options.optString(OPT_APPLICATION_KEY);
+        }
+        if (options.has(OPT_USER_ID)) {
+            this.userId = options.optString(OPT_USER_ID);
+        }
         
         try {
             plManager = PeanutLabsManager.getInstance();
