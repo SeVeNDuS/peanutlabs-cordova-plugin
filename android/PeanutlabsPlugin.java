@@ -16,7 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class FyberPlugin extends CordovaPlugin {
+public class PeanutlabsPlugin extends CordovaPlugin implements IRewardsCenterEventsHandler {
 
     private static final String LOGTAG = "PeanutlabsPlugin";
     private static final int DEFAULT_APP_ID = 8201;
@@ -78,7 +78,7 @@ public class FyberPlugin extends CordovaPlugin {
         
         try {
             plManager = PeanutLabsManager.getInstance();
-            plManager.setRewardsCenterEventsHandler(cordova.getActivity());
+            plManager.setRewardsCenterEventsHandler(this);
             plManager.setApplicationId(this.appId);
             plManager.setApplicationKey(this.appKey);
             plManager.setEndUserId(this.userId);
@@ -101,5 +101,15 @@ public class FyberPlugin extends CordovaPlugin {
         callbackContext.success();
 
         return null;
+    }
+    
+    @Override
+    public void onRewardsCenterOpened() { 
+        Log.d(LOGTAG, "Rewards center opened");
+    }
+
+    @Override
+    public void onRewardsCenterClosed() {
+        Log.d(LOGTAG, "Back from the Rewards center");
     }
 }
