@@ -58,7 +58,7 @@ public class PeanutlabsPlugin extends CordovaPlugin implements IRewardsCenterEve
     private PluginResult executeInitialize(JSONObject options, CallbackContext callbackContext) {
         Log.w(LOGTAG, "executeInitialize");
         
-        this.initialize( options );
+        this.initialize(options);
         
         callbackContext.success();
 
@@ -96,7 +96,7 @@ public class PeanutlabsPlugin extends CordovaPlugin implements IRewardsCenterEve
     private PluginResult executeShowOfferwall(JSONObject options, CallbackContext callbackContext) {
         Log.w(LOGTAG, "executeShowOfferwall");
         
-        plManager.openRewardsCenter(cordova.getActivity());
+        plManager.openRewardsCenter(cordova.getActivity().getApplicationContext());
         
         callbackContext.success();
 
