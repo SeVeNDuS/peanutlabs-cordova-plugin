@@ -30,7 +30,7 @@ public class FyberPlugin extends CordovaPlugin {
     private static final String OPT_DOB = "dob";
     private static final String OPT_GENDER = "gender";
 
-    private String appId = DEFAULT_APP_ID;
+    private int appId = DEFAULT_APP_ID;
     private String appKey = DEFAULT_APP_KEY;
     private String userId = "5043b715c3bd823b760000ff";
     private String dob = "";
